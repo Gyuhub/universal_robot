@@ -26,7 +26,7 @@ You can download with *rosdep*!
 ```
 cd ~/$(your_workspace)
 rosdep install --from-paths src --ignore-src -r -y
-catkin_make
+catkin_make (or catkin build)
 source devel/setup.bash
 ```
 
