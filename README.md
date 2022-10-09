@@ -23,7 +23,7 @@
 
 And please note that if you use the ***ROS Melodic*** , then you should change the version of python from "python3" to "python"
 
-on the **interactive_marker.py"** of **ur_example_controller** package.
+on the **"interactive_marker.py"** of **ur_example_controller"** package.
 
 # Installation
 ```
