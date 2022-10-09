@@ -19,8 +19,11 @@
 - kdl_parser
 - tf2_kdl
 
-**Please** don't worry about that there are so many dependencies.
-You can download with *rosdep*!
+**Please** don't worry about that there are so many dependencies. You can download with *rosdep*!
+
+And please note that if you use the ***ROS Melodic*** , then you should change the version of python from "python3" to "python"
+
+on the **interactive_marker.py"** of **ur_example_controller** package.
 
 # Installation
 ```
