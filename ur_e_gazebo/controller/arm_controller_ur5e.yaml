@@ -29,3 +29,14 @@ joint_group_position_controller:
      - wrist_2_joint
      - wrist_3_joint
 
+cartesian_pose_controller:
+  type: "ur_example_controller/CartesianPoseController"
+  joints:
+     - shoulder_pan_joint
+     - shoulder_lift_joint
+     - elbow_joint
+     - wrist_1_joint
+     - wrist_2_joint
+     - wrist_3_joint
+  base_frame_id: base_link
+  ee_frame_id: wrist_3_link
