@@ -1,0 +1,7 @@
+<library path="lib/libur_example_controller">
+    <class name="ur_example_controller/CartesianPoseController" type="ur_example_controller::CartesianPoseController" base_class_type="controller_interface::ControllerBase">
+        <description>
+            The CartesianPoseController tracks cartesian pose command. It expects a PositionJointInterface type of hardware interface.
+        </description>
+    </class>
+</library>
