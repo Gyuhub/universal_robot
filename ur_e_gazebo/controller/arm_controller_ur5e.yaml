@@ -32,11 +32,11 @@ joint_group_position_controller:
 cartesian_pose_controller:
   type: "ur_example_controller/CartesianPoseController"
   joints:
-     - shoulder_pan_joint
-     - shoulder_lift_joint
-     - elbow_joint
-     - wrist_1_joint
-     - wrist_2_joint
-     - wrist_3_joint
+     - $(arg prefix)shoulder_pan_joint
+     - $(arg prefix)shoulder_lift_joint
+     - $(arg prefix)elbow_joint
+     - $(arg prefix)wrist_1_joint
+     - $(arg prefix)wrist_2_joint
+     - $(arg prefix)wrist_3_joint
   base_frame_id: $(arg link_name)
-  ee_frame_id: ee_link
+  ee_frame_id: $(arg prefix)ee_link
