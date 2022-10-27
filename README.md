@@ -32,8 +32,15 @@ rosdep install --from-paths src --ignore-src -r -y
 catkin_make (or catkin build)
 source devel/setup.bash
 ```
-
+---
+If you want to use an example of mobile manipulator, you should install a **husky** package of Clearpath robotics
+```
+cd ~/$(your_workspace)/src
+git clone https://github.com/Gyuhub/husky.git
+cd ../ && catkin_make (or catkin build)
+```
 # Example
 ```
 roslaunch ur_e_gazebo ur5e.launch 
+roslaunch ur_e_gazebo husky_ur5e.launch 
 ```
