@@ -4,6 +4,7 @@
   <arg name="paused" default="false" doc="Starts gazebo in paused mode" />
   <arg name="gui" default="true" doc="Starts gazebo gui" />
   <arg name="link_name" default="base_link" doc="Base link frame_id of the manipulator" />
+  <arg name="prefix" default="" doc="prefix link name for ur5e" />
   
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
