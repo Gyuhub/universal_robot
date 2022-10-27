@@ -3,6 +3,7 @@
   <arg name="limited" default="false"  doc="If true, limits joint range [-PI, PI] on all joints." />
   <arg name="paused" default="false" doc="Starts gazebo in paused mode" />
   <arg name="gui" default="true" doc="Starts gazebo gui" />
+  <arg name="link_name" default="base_link" doc="Base link frame_id of the manipulator" />
   
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -22,7 +23,7 @@
   <include file="$(find ur_e_gazebo)/launch/controller_utils.launch"/>
 
   <!-- start this controller -->
-  <rosparam file="$(find ur_e_gazebo)/controller/arm_controller_ur5e.yaml" command="load"/>
+  <rosparam file="$(find ur_e_gazebo)/controller/arm_controller_ur5e.yaml" command="load" subst_value="true"/>
   <!-- <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/> -->
 
   <!-- load other controllers -->
@@ -31,7 +32,7 @@
   <node name="ur_example_controller_spawner" pkg="controller_manager" type="spawner" args="cartesian_pose_controller" respawn="false" output="screen"/>
   <node pkg="rviz" type="rviz" output="screen" name="rviz" args="-d $(find ur_example_controller)/rviz/marker.rviz" />
   <node name="interactive_marker" pkg="ur_example_controller" type="interactive_marker.py" output="screen">
-    <param name="link_name" value="base_link" />
+    <param name="link_name" value="$(arg link_name)" />
   </node>
 
 </launch>

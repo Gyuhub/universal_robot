@@ -38,5 +38,5 @@ cartesian_pose_controller:
      - wrist_1_joint
      - wrist_2_joint
      - wrist_3_joint
-  base_frame_id: base_link
+  base_frame_id: $(arg link_name)
   ee_frame_id: ee_link
