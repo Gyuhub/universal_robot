@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="link_name" default="ur5e_mount_link" doc="Mount link frame_id of the manipulator" />
+  <arg name="prefix" default="ur5e_" doc="prefix link name for ur5e" />
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur_e_description)/urdf/husky_ur5e.urdf.xacro' link_name:=$(arg link_name) prefix:=$(arg prefix)" />
+</launch>
