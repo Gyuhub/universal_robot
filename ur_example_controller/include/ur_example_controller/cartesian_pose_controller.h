@@ -18,6 +18,7 @@
 // ROS messages
 #include "sensor_msgs/JointState.h"
 #include "geometry_msgs/PoseStamped.h"
+#include "geometry_msgs/TwistStamped.h"
 
 // ROS additional libraries
 #include "kdl_parser/kdl_parser.hpp"
@@ -49,6 +50,7 @@ public:
 private:
     // publishers and subscribers
     realtime_tools::RealtimePublisher<geometry_msgs::PoseStamped> ee_state_pub_;
+    realtime_tools::RealtimePublisher<geometry_msgs::TwistStamped> ee_state_dot_pub_;
     ros::Subscriber command_sub_;
 
     // kdl library configuration
@@ -57,15 +59,20 @@ private:
     std::shared_ptr<KDL::ChainFkSolverPos_recursive> fk_solver_pos_rec_;
     std::shared_ptr<KDL::ChainIkSolverVel_pinv> ik_solver_vel_pinv_;
     std::unique_ptr<KDL::ChainIkSolverPos_NR> ik_solver_pos_nr;
+    std::shared_ptr<KDL::ChainJntToJacSolver> jnt_to_jac_;
 
     std::shared_ptr<KDL::JntArray> jnt_pos_start_;
+    std::shared_ptr<KDL::JntArrayVel> jnt_vel_start_;
     std::shared_ptr<KDL::Frame> ee_pos_goal_;
+    std::shared_ptr<KDL::Jacobian> jac_;
+    std::shared_ptr<Eigen::VectorXd> ee_vel_;
 
     // ros control configuration
     std::vector<hardware_interface::JointHandle> joint_handle_;
     int joint_num_;
     std::string base_frame_id_, ee_frame_id_;
     geometry_msgs::PoseStamped ee_state_, ee_desired_;
+    geometry_msgs::TwistStamped ee_state_dot_;
 
     // callback function for command subscriber
     void GetDesiredEndEffectorPose(const geometry_msgs::PoseStamped::ConstPtr &msg);
